@@ -64,7 +64,20 @@ rm -rf /tmp/wechat_icon.iconset /tmp/shift_hue.py
 touch ~/Applications/微信双开.app
 codesign --force --deep --sign - ~/Applications/微信双开.app
 
-# 8. 自动打开紫色的双开版微信！
+# 8. 如果 macOS 图标缓存顽固，使用 Swift 原生接口强制为该 APP 烙印自定义图标
+cat << 'EOF' > /tmp/set_icon.swift
+import Cocoa
+let iconPath = NSHomeDirectory() + "/Applications/微信双开.app/Contents/Resources/AppIcon.icns"
+let targetPath = NSHomeDirectory() + "/Applications/微信双开.app"
+if let image = NSImage(contentsOfFile: iconPath) {
+    NSWorkspace.shared.setIcon(image, forFile: targetPath, options: [])
+}
+EOF
+swift /tmp/set_icon.swift
+rm -f /tmp/set_icon.swift
+killall Dock && killall Finder
+
+# 9. 自动打开紫色的双开版微信！
 open ~/Applications/微信双开.app
 ```
 
