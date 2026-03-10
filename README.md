@@ -1,6 +1,13 @@
 # macOS 微信双开指南 & 紫色独立图标版
 
+<img src="./purple_icon.png" width="128" />
+
 本指南提供一种在 macOS 上完美实现微信双开的方法，通过克隆应用、修改 Bundle ID、替换应用图标及重新签名，生成一个完全独立运行的“微信双开版”，并带有一眼即可区分的紫色图标。
+
+> 🎨 **现成图标资源下载**：
+> 如果您只需要紫色的微信图标文件，您可以直接本仓库下载现成文件：
+> - [1024x1024 高清 PNG 图片 (purple_icon.png)](./purple_icon.png)
+> - [macOS 原生 ICNS 图标文件 (purple_wechat.icns)](./purple_wechat.icns)
 
 ## 方案优势
 1. **完全独立**：不在终端残留黑框，和原生软件体验一致。
